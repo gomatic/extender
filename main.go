@@ -25,5 +25,5 @@ func main() {
 	// strings.HasPrefix(os.StartProcess("go version"), "Go toolchain extender")
 
 	// output for eval
-	fmt.Println("export PATH=%s:${PATH}", extender)
+	fmt.Printf("export PATH=%s:${PATH}", extender)
 }
