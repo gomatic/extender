@@ -1,0 +1,10 @@
+*
+
+!cmds/
+!.gitignore
+!LICENSE
+!Dockerfile
+!Makefile
+!*.md
+!*.go
+!*.yml
