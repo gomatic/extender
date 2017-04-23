@@ -44,12 +44,12 @@ func main() {
 	}
 
 	// Use absolute paths for verification.
-	gobin_abs, err := filepath.Abs(gobin)
+	gobinAbs, err := filepath.Abs(gobin)
 	if err != nil {
 		log.Println(err)
 		os.Exit(1)
 	}
-	goroot_abs, err := filepath.Abs(goroot)
+	gorootAbs, err := filepath.Abs(goroot)
 	if err != nil {
 		log.Println(err)
 		os.Exit(1)
@@ -64,15 +64,15 @@ func main() {
 	// Ensure that the location of go get binaries precedes GOROOT/bin.
 
 	for _, path := range filepath.SplitList(path) {
-		path_abs, err := filepath.Abs(path)
+		pathAbs, err := filepath.Abs(path)
 		if err != nil {
 			log.Println(err)
 			continue
 		}
-		if strings.HasPrefix(path_abs, gobin_abs) {
+		if strings.HasPrefix(pathAbs, gobinAbs) {
 			// If we reach GOBIN first, then PATH is good.
 			os.Exit(0)
-		} else if strings.HasPrefix(path_abs, goroot_abs) {
+		} else if strings.HasPrefix(pathAbs, gorootAbs) {
 			// If GOROOT is before GOBIN or neither is in the PATH (unlikely), update the PATH.
 			break
 		}

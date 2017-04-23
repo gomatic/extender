@@ -24,11 +24,11 @@ func main() {
 
 	verbosity, exists := os.LookupEnv("EXTENDER_MESSAGING")
 	verbosity = strings.ToLower(verbosity)
-	messages_silent := verbosity == "silent"
-	messages_debug := !messages_silent && verbosity == "debug"
-	messages_info := !messages_silent && messages_debug || verbosity == "info"
+	msgSilent := verbosity == "silent"
+	msgDebug := !msgSilent && verbosity == "debug"
+	msgInfo := !msgSilent && msgDebug || verbosity == "info"
 
-	if messages_info {
+	if msgInfo {
 		log.Printf("Go toolchain extender v%s.%s", majorVersion, appVersion)
 	}
 
@@ -45,7 +45,7 @@ func main() {
 	var cmd *commander.Commanding
 	for _, prefix := range prefixes {
 		subcommand := os.Args[1]
-		if messages_debug {
+		if msgDebug {
 			log.Printf("Trying %s%s", prefix, subcommand)
 		}
 		c, err := commander.New(prefix).LookPath(subcommand)
@@ -54,7 +54,7 @@ func main() {
 			cmd = c.Inherit(2)
 			break
 		}
-		if messages_debug {
+		if msgDebug {
 			log.Println(err)
 		}
 	}
@@ -62,7 +62,7 @@ func main() {
 	// If an extension wasn't found, pass it on to GOROOT/bin/go
 
 	if cmd == nil { // Not found
-		if messages_debug {
+		if msgDebug {
 			log.Printf("No extension found for %s", os.Args[1])
 		}
 		cmd = commander.New("").Inherit(1)
@@ -74,7 +74,7 @@ func main() {
 		cmd.Binary = filepath.Join(goroot, "bin", "go")
 	}
 
-	if messages_debug {
+	if msgDebug {
 		log.Println(cmd.String())
 	}
 
