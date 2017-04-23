@@ -12,5 +12,5 @@ var appVersion = "0"
 
 //
 func main() {
-	log.Printf("Go toolchain extender v%s.%s", majorVersion, appVersion)
+	log.Printf("Example toolchain extender v%s.%s", majorVersion, appVersion)
 }

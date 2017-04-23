@@ -6,4 +6,5 @@ Go toolchain command extender.
  and overrides `GOROOT/bin` in the `PATH` :warning:  
 
     go get github.com/gomatic/extender/...
-    eval extender
+    eval $(extender)
+
