@@ -2,6 +2,9 @@
 
 Go toolchain subcommand extender. 
 
+![reportcard](https://goreportcard.com/badge/github.com/gomatic/extender)
+![build](https://travis-ci.org/gomatic/extender.svg?branch=master)
+
 `extender` provides a `go` executable to precede `GOROOT/bin/go`.
 
 This allows you to extend the `go` toolchain or replace native commands. 
