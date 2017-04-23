@@ -1,6 +1,6 @@
 # extender
 
-Go toolchain command extender. 
+Go toolchain subcommand extender. 
 
 `extender` provides a `go` executable to precede `GOROOT/bin/go`.
 
