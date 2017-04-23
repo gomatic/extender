@@ -33,3 +33,8 @@ A consequence: allows pointing the go command to separate versions of `go`.
     go get github.com/gomatic/extender/...
     eval $(extender)
 
+Additional, you can specify the prefixes that'll be considered extensions:
+
+    eval $(extender go go-)
+
+will first look for, e.g., `goex` and if not found, `go-ex`, then try `GOROOT/bin/go ex`.
