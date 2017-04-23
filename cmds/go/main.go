@@ -15,7 +15,7 @@ import (
 const majorVersion = "1.0"
 
 //
-var appVersion = "0"
+var version = "0"
 
 //
 func main() {
@@ -29,7 +29,7 @@ func main() {
 	msgInfo := !msgSilent && msgDebug || verbosity == "info"
 
 	if msgInfo {
-		log.Printf("Go toolchain extender v%s.%s", majorVersion, appVersion)
+		log.Printf("Go toolchain extender v%s.%s", majorVersion, version)
 	}
 
 	// Slice the prefixes.

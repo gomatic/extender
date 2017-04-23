@@ -52,4 +52,5 @@ will first look for, e.g., `goex` and if not found, `go-ex`, then try `GOROOT/bi
 
 # To do
 
-- [ ] Provide optional template processing of the command line.
+- [ ] An optional template processing of the command line.
+- [ ] Support for `{prefix}pre-*` for altering the commandline parameters.
