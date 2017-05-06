@@ -70,8 +70,3 @@ Additional, you can specify the prefixes that'll be considered extensions (the d
     eval $(extender go go-)
 
 will first look for, e.g., `goex` and if not found, `go-ex`, then try `GOROOT/bin/go ex`.
-
-# To do
-
-- [ ] An optional template processing of the command line.
-- [ ] Support for `{prefix}pre-*` for altering the commandline parameters.
