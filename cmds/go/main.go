@@ -9,28 +9,18 @@ import (
 	"strings"
 
 	"github.com/gomatic/commander"
+	"github.com/gomatic/go-vbuild"
 )
-
-//
-const majorVersion = "1.0"
-
-//
-var version = "0"
 
 //
 func main() {
 
 	// Configure logging. TODO use a real logger.
 
-	verbosity, exists := os.LookupEnv("EXTENDER_MESSAGING")
-	verbosity = strings.ToLower(verbosity)
-	msgSilent := verbosity == "silent"
-	msgDebug := !msgSilent && verbosity == "debug"
-	msgInfo := !msgSilent && msgDebug || verbosity == "info"
+	debugging, exists := os.LookupEnv("DEBUGGING")
+	msgDebug := exists && strings.ToLower(debugging) == "true"
 
-	if msgInfo {
-		log.Printf("Go toolchain extender v%s.%s", majorVersion, version)
-	}
+	log.Printf("Go toolchain extender v%s", build.Version.String())
 
 	// Slice the prefixes.
 
@@ -51,7 +41,7 @@ func main() {
 		c, err := commander.New(prefix).LookPath(subcommand)
 		if err == nil { // Found
 			// Inherit the environment and command-line starting after the subcommand.
-			cmd = c.Inherit(2)
+			cmd = c.Inherit(1)
 			break
 		}
 		if msgDebug {
@@ -65,7 +55,7 @@ func main() {
 		if msgDebug {
 			log.Printf("No extension found for %s", os.Args[1])
 		}
-		cmd = commander.New("").Inherit(1)
+		cmd = commander.New("").Inherit(0)
 		goroot, exists := os.LookupEnv("GOROOT")
 		if !exists {
 			log.Println("Missing GOROOT")

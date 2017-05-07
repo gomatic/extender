@@ -6,17 +6,13 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+
+	"github.com/gomatic/go-vbuild"
 )
 
 //
-const majorVersion = "1.0"
-
-//
-var version = "0"
-
-//
 func main() {
-	log.Printf("Go toolchain extender v%s.%s", majorVersion, version)
+	log.Printf("Go toolchain extender installer v%s", build.Version.Detailed())
 
 	// Ensure extender's path, GOBIN, comes before go in PATH.
 

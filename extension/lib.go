@@ -9,13 +9,13 @@ import (
 )
 
 //
-func Delegate(args ...string) error {
+func Delegate(subcommand string, args ...string) error {
 	goroot, exists := os.LookupEnv("GOROOT")
 	if !exists {
 		return fmt.Errorf("Missing GOROOT")
 	}
-	cmd := commander.New("").Inherit(2)
+	cmd := commander.New("")
 	cmd.Binary = filepath.Join(goroot, "bin", "go")
-	cmd.Args(args...)
+	cmd.Args(subcommand).Args(args...).Inherit(0)
 	return cmd.Execute()
 }
