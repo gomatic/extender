@@ -8,7 +8,7 @@ import (
 	"github.com/gomatic/commander"
 )
 
-//
+// Delegate to the GOROOT/bin/go subcommand.
 func Delegate(subcommand string, args ...string) error {
 	goroot, exists := os.LookupEnv("GOROOT")
 	if !exists {

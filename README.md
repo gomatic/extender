@@ -4,6 +4,8 @@ Go toolchain subcommand extender.
 
 [![reportcard](https://goreportcard.com/badge/github.com/gomatic/extender)](https://goreportcard.com/report/github.com/gomatic/extender)
 [![build](https://travis-ci.org/gomatic/extender.svg?branch=master)](https://travis-ci.org/gomatic/extender)
+[![godoc](https://godoc.org/github.com/gomatic/extender/extension?status.svg)](https://godoc.org/github.com/gomatic/extender/extension)
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
 
 See [gomatic/extenders](//github.com/gomatic/extenders) for a list of known extenders.
 
@@ -72,3 +74,7 @@ Additional, you can specify the prefixes that'll be considered extensions (the d
     eval $(extender go go-)
 
 will first look for, e.g., `goex` and if not found, `go-ex`, then try `GOROOT/bin/go ex`.
+
+# Writing extensions
+
+See examples in [gomatic/go-vbuild](//github.com/gomatic/go-vbuild).
