@@ -1,9 +1,11 @@
 # extender
 
-Go toolchain subcommand extender. 
+Go toolchain subcommand extender.
 
 [![reportcard](https://goreportcard.com/badge/github.com/gomatic/extender)](https://goreportcard.com/report/github.com/gomatic/extender)
 [![build](https://travis-ci.org/gomatic/extender.svg?branch=master)](https://travis-ci.org/gomatic/extender)
+
+See [gomatic/extenders](//github.com/gomatic/extenders) for a list of known extenders.
 
 # for critics
 
@@ -12,9 +14,9 @@ before they take the two seconds needed to grasp the actual purpose of such a to
 
 - This isn't about typing `go vend` instead of `govend`.
 - This is about being able to replace or augment native `go` toolchain commands. e.g.
-  - Do you have specific things you need as part of `go build`, e.g. adding common `-X`? 
+  - Do you have specific things you need as part of `go build`, e.g. adding common `-X`?
   Then just install the augmentations and you've changed the behavior of `go build`.
-  - Don't like how `go dep`, `go vet`, `go *` works? Replace it with a different implementation. 
+  - Don't like how `go dep`, `go vet`, `go *` works? Replace it with a different implementation.
 
 It allows Go developers to continue using the standard toolchain and simple commands but
 gain different/customized functionality ... because, thankfully, we don't all like exactly the same
@@ -28,10 +30,10 @@ When someone has done that, I'll delete this repository.
 
 `extender` provides a `go` executable to precede `GOROOT/bin/go`.
 
-This allows you to extend the `go` toolchain or even replace Go's native subcommands. 
+This allows you to extend the `go` toolchain or even replace Go's native subcommands.
 
 :warning: Do not use this unless you have a good understanding of the go environment
-and, more generally, configuring your shell's environment.  
+and, more generally, configuring your shell's environment.
 
 `extender`'s `go` executable provides the ability to call subcommands through
 the `go` command. The subcommands are implemented as executables with a recognizable
